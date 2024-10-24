@@ -70,3 +70,4 @@ hsetroot -cover "$idir"/theme/wallpaper
 
 
 i3-autolayout autolayout
+redshift -l 50.0283858:14.4722089
