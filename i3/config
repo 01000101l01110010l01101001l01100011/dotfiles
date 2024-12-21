@@ -348,3 +348,6 @@ exec_always --no-startup-id ~/.config/i3/scripts/i3_autostart
 
 ## The --no-startup-id parameter disables startup-notification support for this particular exec command.
 ## With startup-notification, i3 can make sure that a window appears on the workspace on which you used the exec command.
+
+for_window [class="spotify"] move container to workspace 12
+for_window [class="vesktop"] move container to workspace 11

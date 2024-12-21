@@ -63,7 +63,7 @@ redshift -l 50.0283858:14.4722089 &
 
 # Start Spotify and Discord
 i3-msg 'workspace 12; exec spotify' 
-sleep 0.5
+#sleep 0.5
 i3-msg 'workspace 11; exec vesktop' 
 
 
