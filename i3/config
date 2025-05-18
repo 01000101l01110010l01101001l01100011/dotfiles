@@ -181,11 +181,11 @@ workspace 12 output HDMI-0
 workspace 13 output HDMI-0
 workspace 14 output HDMI-0
 workspace 15 output HDMI-0
-workspace 16 output HDMI-0
-workspace 17 output HDMI-0
-workspace 18 output HDMI-0
-workspace 19 output HDMI-0
-workspace 20 output HDMI-0
+workspace 16 output DP-2
+workspace 17 output DP-2
+workspace 18 output DP-2
+workspace 19 output DP-2
+workspace 20 output DP-2
 
 
 
@@ -349,5 +349,6 @@ exec_always --no-startup-id ~/.config/i3/scripts/i3_autostart
 ## The --no-startup-id parameter disables startup-notification support for this particular exec command.
 ## With startup-notification, i3 can make sure that a window appears on the workspace on which you used the exec command.
 
-for_window [class="spotify"] move container to workspace 12
-for_window [class="vesktop"] move container to workspace 11
+assign [class="vesktop"] workspace 11
+assign [class="Spotify"] workspace 16
+

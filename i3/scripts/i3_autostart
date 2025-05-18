@@ -37,7 +37,7 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 xsetroot -cursor_name left_ptr
 
 #sleep 1 &&
-xrandr --output DP-4 --right-of HDMI-0 && xrandr --output DP-4 --primary
+xrandr --output DP-4 --primary --output DP-2 --right-of DP-4 --output HDMI-0 --left-of DP-4
 
 # Restore wallpaper
 hsetroot -cover "$idir"/theme/wallpaper
@@ -59,13 +59,16 @@ setxkbmap -layout us,cz -option grp:switch
 
 
 numlockx &
-redshift -l 50.0283858:14.4722089 &
+redshift -t 6500:3200 -P -l 50.0283858:14.4722089 &
 
 # Start Spotify and Discord
-i3-msg 'workspace 12; exec spotify' 
-#sleep 0.5
-i3-msg 'workspace 11; exec vesktop' 
+i3-msg 'exec vesktop' 
+i3-msg 'exec spotify'
+
 
 
 i3-autolayout autolayout
+
+sudo snapper -c root cleanup timeline
+sudo snapper -c home cleanup timeline
 
