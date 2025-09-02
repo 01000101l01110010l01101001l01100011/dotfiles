@@ -69,6 +69,3 @@ i3-msg 'exec spotify'
 
 i3-autolayout autolayout
 
-sudo snapper -c root cleanup timeline
-sudo snapper -c home cleanup timeline
-
