@@ -1,73 +1,104 @@
-[window]
-decorations = "none"
-dynamic_title = true
-startup_mode = "Windowed"
-opacity = 0.95
+## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
+##
+## Configuration for Alacritty, the GPU enhanced terminal emulator.
+## It's a very basic and simple config file, for full configuration, Run `man 5 alacritty`
 
+## GENERAL --------------------------------------------------------
+[general]
+## Import additional configuration files.
+import = ["~/.config/i3/alacritty/colors.toml", "~/.config/i3/alacritty/fonts.toml"]
+
+## You can set shell.program to the path of your favorite shell, e.g. /bin/zsh.
+## Entries in shell.args are passed as arguments to the shell.
+#shell = { program = "/bin/zsh", args = ["--login"] }
+
+## Directory the shell is started in. When this is unset, or "None",
+## the working directory of the parent process will be used.
+#working_directory = "None"
+
+## Live config reload
+live_config_reload = true
+
+## Offer IPC using alacritty msg
+ipc_socket = true
+
+## ENVIRONMENT ----------------------------------------------------
+
+## All key-value pairs in the [env] section will be added as environment variables for any process spawned
+## by Alacritty, including its shell. Some entries may override variables set by alacritty itself.
+[env]
+TERM = "alacritty"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
+## WINDOW ---------------------------------------------------------
+[window]
+position = "None"
+dynamic_padding = true
+decorations = "full"
+opacity = 1.0
+blur = false
+startup_mode = "Windowed"
+dynamic_title = true
+class = { instance = "Alacritty", general = "Alacritty" }
+decorations_theme_variant = "None"
+
+## Number of lines/columns (not pixels) in the terminal.
+[window.dimensions]
+columns = 82
+lines = 24
+
+## Blank space added around the window in pixels.
 [window.padding]
 x = 10
 y = 10
 
-[font]
-size = 8
-
-[font.normal]
-family = "JetBrainsMono Nerd Font"
-style = "Regular"
-
-[font.bold]
-family = "JetBrainsMono Nerd Font"
-style = "Bold"
-
-[font.italic]
-family = "JetBrainsMono Nerd Font"
-style = "Italic"
-
-[font.offset]
-x = 0
-y = 0
-
-[font.glyph_offset]
-x = 0
-y = 0
-
-[colors.primary]
-background = "#0f111a"
-foreground = "#d0d0d0"
-
-[colors.normal]
-black   = "#1c1c1c"
-red     = "#ff5c57"
-green   = "#5af78e"
-yellow  = "#f3f99d"
-blue    = "#57c7ff"
-magenta = "#ff6ac1"
-cyan    = "#9aedfe"
-white   = "#f1f1f0"
-
-[colors.bright]
-black   = "#686868"
-red     = "#ff5c57"
-green   = "#5af78e"
-yellow  = "#f3f99d"
-blue    = "#57c7ff"
-magenta = "#ff6ac1"
-cyan    = "#9aedfe"
-white   = "#ffffff"
-
-[cursor.style]
-shape = "Beam"
-
-[terminal.shell]
-program = "/bin/bash"
-args = ["--login"]
-
-[env]
-TERM = "xterm-256color"
-
+## SCROLLING ------------------------------------------------------
 [scrolling]
 history = 10000
 multiplier = 3
 
-[terminal]
+## BELL -----------------------------------------------------------
+[bell]
+animation = "Linear"
+duration = 20
+command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/dialog-error.oga"] }
 
+## SELECTION ------------------------------------------------------
+[selection]
+save_to_clipboard = true
+
+## CURSOR ---------------------------------------------------------
+[cursor]
+vi_mode_style = "None"
+blink_interval = 750
+blink_timeout = 5
+unfocused_hollow = false
+thickness = 0.15
+
+[cursor.style]
+shape = "Block"
+blinking = "On"
+
+## MOUSE ----------------------------------------------------------
+[mouse]
+hide_when_typing = false
+
+## HINTS ----------------------------------------------------------
+[[hints.enabled]]
+command         = "xdg-open"
+hyperlinks      = true
+post_processing = true
+persist         = false
+mouse.enabled   = true
+binding         = { key = "U", mods = "Control|Shift" }
+regex           = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩‘]+"
+
+## DEBUG ----------------------------------------------------------
+[debug]
+render_timer = false
+persistent_logging = false
+log_level = "Warn"
+renderer = "None"
+print_events = false
+highlight_damage = false
+prefer_egl = false
